@@ -15,18 +15,9 @@ public class MakeReservations {
         }
         return code.toString();
     }
-   /* public static String AccountCode(int num){
-        String AlphabetString = "1234567890";
-        StringBuilder code = new StringBuilder(num);
-        for (int i = 0; i< num; i++){
-            int index = (int) (AlphabetString.length()* Math.random());
-            code.append(AlphabetString.charAt(index));
-        }
-        return code.toString();
-    }
-*/
+  
 
-    public static void main(String[] args) {
+    public void makeRes(String firstName, String lastName) {
         try{
             int num = 6;
             //if the have account get from search
@@ -37,14 +28,16 @@ public class MakeReservations {
             //input resroom = getRoom();
             //check for errors in errors in the name and date and room
 
-            String fname = "John";
-            String lname = "Smith";
+            String fname = firstName;
+            String lname = lastName;
 
             String code = ConfirmCode(num);
             //String accCode = AccountCode(num);
 
             BufferedWriter writer = new BufferedWriter(new FileWriter("Reservations.txt",true));
 
+            writer.write(code);
+            writer.newLine();
             //writer.write(accCode);
             writer.newLine();
             writer.write(fname);
@@ -54,10 +47,11 @@ public class MakeReservations {
 
             //writer.write(resdate)
             //writer.newLine();
+            //writer.write: number of nights
+            //writer.newLine();
             //writer.write(resroom);
             //writer.newLine();
-            writer.write(code);
-            writer.newLine();
+            
             writer.newLine();
             writer.close();
 
