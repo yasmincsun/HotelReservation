@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+
+<AnchorPane prefHeight="566.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelreservations.MainController">
+   <children>
+      <ButtonBar layoutX="1.0" layoutY="67.0" prefHeight="23.0" prefWidth="710.0">
+         <buttons>
+            <Button fx:id="browseRooms" mnemonicParsing="false" onAction="#switchToBrowseRooms" text="Browse Rooms" />
+            <Button fx:id="MakeReservation" mnemonicParsing="false" onAction="#switchToMakeReservation" text="Make Reservation" />
+            <Button fx:id="toLoginFromMain" mnemonicParsing="false" onAction="#switchToLogin" text="Log In" />
+            <Button fx:id="toAboutFromMain" mnemonicParsing="false" onAction="#switchToAbout" text="About Us" textAlignment="CENTER" />
+         </buttons>
+      </ButtonBar>
+      <Polygon fx:id="logo" fill="#1fff7b" layoutX="54.0" layoutY="49.0" points="-50.0, 40.0, 50.0, 40.0, 0.0, -60.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

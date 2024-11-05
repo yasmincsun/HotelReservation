@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Sphere?>
+
+<AnchorPane prefHeight="566.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelreservations.MainController">
+   <children>
+      <Button fx:id="MakeReservation" layoutX="559.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToMakeReservation" text="Make Reservation" />
+      <Button fx:id="fromLoginToMain" layoutX="25.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToMainMenu" text="Return to Main Menu" />
+      <Sphere layoutX="246.0" layoutY="226.0" radius="50" />
+      <Sphere layoutX="246.0" layoutY="415.0" radius="50" />
+   </children>
+</AnchorPane>

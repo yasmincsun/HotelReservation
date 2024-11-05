@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="566.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelreservations.MainController">
+   <children>
+      <Text fx:id="firstName" layoutX="89.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+      <Text fx:id="lastName" layoutX="90.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+      <Text fx:id="accountID" layoutX="87.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account ID " />
+      <Button layoutX="238.0" layoutY="269.0" mnemonicParsing="false" text="Review Reservations" />
+   </children>
+</AnchorPane>
