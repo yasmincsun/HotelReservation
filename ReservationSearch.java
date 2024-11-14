@@ -40,6 +40,12 @@ public class ReservationSearch {
             System.out.printf("\n\tError occurred while searching for the reservation: %s", e);
         }
     }
+    public String getfname(){
+        return firstName;
+    }
+    public String getlname(){
+        return lastName;
+    }
 
     public String getReservationDetails() {
         return String.format("Reservation ID: %s\nFirst Name: %s\nLast Name: %s\nStay Dates: %s\nRoom Type: %s",
