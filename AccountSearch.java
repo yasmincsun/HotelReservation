@@ -2,52 +2,52 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class AccountSearch {
+
+public class AccountSearch {
     private String accountID;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String email;
+    private boolean found = false;
 
     public AccountSearch(String accountID) {
         this.accountID = accountID;
+        searchAccount();
     }
 
-    public String searchAccount() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("accounts.txt"));
-        String line;
-        StringBuilder result = new StringBuilder();
-        boolean accountFound = false;
+    public void searchAccount() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("accounts.txt"))) {
+            String line;
 
-        while ((line = reader.readLine()) != null) {
-            if (line.startsWith(accountID)) {
-                String[] details = line.split(",");
-                result.append("First Name: ").append(details[1]).append("\n")
-                      .append("Last Name: ").append(details[2]).append("\n")
-                      .append("Nights Stayed: ").append(details[3]).append("\n");
-                accountFound = true;
-            } else if (accountFound) {
-                break;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.equals(accountID)) {
+                    found = true;
+                    firstName = reader.readLine();
+                    lastName = reader.readLine();
+                     phone= reader.readLine();
+                     email = reader.readLine();
+
+                    break;
+                }
+                // Skip the next lines if not found
+                if (line.isEmpty()) {
+                    continue;
+                }
             }
-        }
-        reader.close();
 
-        if (!accountFound) {
-            throw new IllegalArgumentException("The accountID does not exist.");
+            if (!found) {
+                throw new Exception("Reservation ID not found.");
+            }
+        } catch (Exception e) {
+            System.out.printf("\n\tError occurred while searching for the reservation: %s", e);
         }
-
-        return result.toString();
     }
-}
-
-class AccountSearchCaller {
-    public static void main(String[] args) {
-        // String accountID = "12345"; // This should be provided dynamically
-        AccountSearch accountSearch = new AccountSearch(accountID);
-
-        try {
-            String accountDetails = accountSearch.searchAccount();
-            System.out.println(accountDetails);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-        }
+    public String getlname(){
+        return lastName;
+    }
+    public boolean getResult(){
+        return found;
     }
 }
