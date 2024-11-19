@@ -12,6 +12,16 @@ public class Accounts {
         }
         return code.toString();
     }
+    public boolean verifyAccount(String accountID, String lname){
+        AccountSearch obj = new AccountSearch(accountID);
+        String lastname = obj.getlname();
+        boolean result = obj.getResult();
+        if(result == true && lname.equals(lastname)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
 public static void main(String[] args) {
