@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
-* DESCRIPTION OF CLASS HERE 
+* The ManageReservation class contains two methods, one that changes information about the reservation and one that cancels the reservation in its entirety. 
 * @author Iliana Madrigal 
 * @version 1.2
 */ 
@@ -12,10 +12,10 @@ public class ManageReservation {
     /**
     * DESCRIPTION OF changeReservatiom method here
     * @author Iliana Madrigal 
-    * @param ID 
-    * @param oldValue
-    * @param newValue
-    * @exception 
+    * @param ID is the ReservationID that each reservation had. Each ID is unique which is why it is the search term used to traverse the Reservations.txt file. 
+    * @param oldValue is the original piece of information within the reservation that the user is trying to change. 
+    * @param newValue is the new information that the user is trying have replace the original value of their reservation. 
+    * @exception if the information is unable to read or written to the file, and exception catches the error and displays to the terminal what the issue was. 
     */ 
     public void changeReservation(String ID, String oldValue, String newValue){
     try{
@@ -52,10 +52,10 @@ public class ManageReservation {
     }
 
     /**
-    * DESCRIPTION OF THE CANCELRES CLASS HERE 
-    * 
-    
-
+    * The cancelRes class searches through the Reservations.txt file and will delete all of the information associated with that specific reservationID.  
+    * @author Iliana Madrigal 
+    * @param ID is the unique piece of information associated with every reservation, which is why it is used as the search term to traverse the entirety of the Reservations.txt file.
+    * @exception if the information is unable to read or written to the file, and exception catches the error and displays to the terminal what the issue was.
     */ 
     public void cancelRes(String ID){
         try{
