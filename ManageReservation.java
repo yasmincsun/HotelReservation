@@ -1,8 +1,22 @@
 import java.io.*;
 import java.util.*;
 
+/**
+* DESCRIPTION OF CLASS HERE 
+* @author Iliana Madrigal 
+* @version 1.2
+*/ 
+
 public class ManageReservation {
 
+    /**
+    * DESCRIPTION OF changeReservatiom method here
+    * @author Iliana Madrigal 
+    * @param ID 
+    * @param oldValue
+    * @param newValue
+    * @exception 
+    */ 
     public void changeReservation(String ID, String oldValue, String newValue){
     try{
         BufferedReader reader = new BufferedReader(new FileReader("Reservations.txt"));
@@ -37,6 +51,12 @@ public class ManageReservation {
 
     }
 
+    /**
+    * DESCRIPTION OF THE CANCELRES CLASS HERE 
+    * 
+    
+
+    */ 
     public void cancelRes(String ID){
         try{
             BufferedReader reader = new BufferedReader(new FileReader("Reservations.txt"));
