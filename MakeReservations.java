@@ -1,11 +1,10 @@
 
 import java.util.*;
 import java.io.*;
-//This code will gather all of the users information and information about the reservation
-//and create the reservation and put it into the Reservations.txt file
 
 /**
-* DESCRIPTION OF CLASS HERE 
+* The class dedicated to making the Hotel reservations. Has a ConfirmCode method which generates a ReservationID when new reservations are created
+*    and a makeRes method which writes all of the reservation information into the Reservations.txt file. 
 * @author Iliana Madrigal 
 * @version 1.3 
 */ 
@@ -14,6 +13,7 @@ public class MakeReservations {
 
     /**
     * Creates a Reservaton Confirmation Code after a reservation is created by the user to differentiate between different bookings. 
+    *     The ConfirmaionCode is made up of a random sequence of alphanuermic characters and has a length of 6. 
     * @author Iliana Madrigal 
     * @param num serves as the length of the Reservation Confirmation code and is declared in the makeRes method's code that calls the ConfirmCode method
     * @return The confirmation code as a String type 
