@@ -38,44 +38,45 @@ public class MakeReservations {
     * @param roomType is the bed type that the user selected when making a reservation. User had a choice between a King Bed Room and a Two Queen Bed Room
     * @exception if the information is unable to be written into the file for any reason, the exception is thrown and an error message is printed to the terminal
     */ 
-    public void makeRes(String firstName, String lastName) {
-        try{
+    public void makeRes(String firstName, String lastName, LocalDate checkInDate, LocalDate checkOutDate, String roomType) {
+        try {
             int num = 6;
-            //if the have account get from search
             //Account fname = getFirstName();
             //Account lname = getLastName();
-
-            //input resdate = getDate();
-            //input resroom = getRoom();
-            //check for errors in errors in the name and date and room
+            //Date resdate = getDate();
+            //Room resroom = getRoom();
 
             String fname = firstName;
             String lname = lastName;
+            LocalDate checkIn = checkInDate;
+            LocalDate checkOut = checkOutDate;
+            String room = roomType;
+
+
+
 
             String code = ConfirmCode(num);
-            //String accCode = AccountCode(num);
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Reservations.txt",true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Reservations.txt", true));
 
             writer.write(code);
-            writer.newLine();
-            //writer.write(accCode);
             writer.newLine();
             writer.write(fname);
             writer.newLine();
             writer.write(lname);
             writer.newLine();
+            writer.write(checkIn.toString());
+            writer.newLine();
+            writer.write(checkOut.toString());
+            writer.newLine();
+            writer.write(room);
+            writer.newLine();
 
-            //writer.write(resdate)
-            //writer.newLine();
-            //writer.write: number of nights
-            //writer.newLine();
-            //writer.write(resroom);
-            //writer.newLine();
-            
             writer.newLine();
             writer.close();
 
-        }catch (Exception e){System.out.printf("\n\tError occurred in trying to write to the file. %s", e);}
+        } catch (Exception e) {
+            System.out.printf("\n\tError occurred in trying to write to the file. %s", e);
+        }
     }
 }
