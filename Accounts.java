@@ -4,7 +4,8 @@ import java.util.*;
 import java.io.*;
 
 /**
-* DESCRIPT OF CLASS
+* This class creates accounts, generates the AccountCode, verifies whether the account information is correct when a user is trying to login, and has a getter method which 
+*     returns the accountCode to the class that is calling the method. 
 * @author Iliana Madirgal 
 * @version 1.2 
 */ 
@@ -92,6 +93,15 @@ public class Accounts {
         } catch (Exception e) {
             System.out.printf("\n\tError occurred in trying to write to the file. %s", e);
         }
+    }
+
+    /** 
+    * A simple getter method which returns the value of the code to the class which calls the method. 
+    * @author
+    * @return code is the accountCode which differ
+    */ 
+    public String getAccountCode(){
+        return code;
     }
 
 }
