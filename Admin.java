@@ -1,7 +1,7 @@
 public class Admin {
     private int availableDeluxe = 50;
     private int availableStandard = 50;
-    private int reservCounter =0;
+    private int reservCounter = 0;
     private int cancelCounter = 0;
 
     public boolean logIN(String accountID, String user){
