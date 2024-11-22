@@ -13,6 +13,15 @@ public class ReservationSearch {
         searchReservation();
     }
 
+    /**
+    * The searchReservation method traverses through the Reservations.txt file using the reservationID as the search term. The searchReservation method is meant to find the reservationID 
+    *     using the value provided by the user to read through the file to find the reservation information associated with that specific reservationID. 
+    * @author Yasmin Zubair
+    * @author Iliana Madrigal 
+    * @exception e is used to catch any issues with reading or writing to the Reservations.txt file. An error message is printed to the user through the terminal if this exception is called. 
+    * @exception is thrown if the accountID is not found within the Reservations.txt file. An error message is printed to the user through the terminal if this exception is called. 
+    */ 
+    
     private void searchReservation() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Reservations.txt"))) {
             String line;
