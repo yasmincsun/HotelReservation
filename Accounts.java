@@ -13,9 +13,10 @@ import java.io.*;
 public class Accounts {
 
     /**
-    *DESCRIPT
+    * The AccountCode method is used to generate the user's unique accountID. When a user is creating an account, the AccountCode method will be called which will differentiates between all of the account
+    *     in the Accounts.txt file. Using a string of random numbers, the accountCode will be initialized as an int type before being returned as a string to the user. 
     * @author Iliana Madrigal 
-    * @param num is the length of the AccountCode. 
+    * @param num is the length of the generated AccountCode string. 
     * @return code passes the AccountID as a String back to the method that called AccountCode(). 
     */ 
     public String AccountCode(int num) {
@@ -97,8 +98,8 @@ public class Accounts {
 
     /** 
     * A simple getter method which returns the value of the code to the class which calls the method. 
-    * @author
-    * @return code is the accountCode which differ
+    * @author Iliana Madrigal
+    * @return code is the accountCode which is used to separate all of the accounts within the Accounts.txt file. 
     */ 
     public String getAccountCode(){
         return code;
