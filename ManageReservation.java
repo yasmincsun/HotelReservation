@@ -10,12 +10,14 @@ import java.util.*;
 public class ManageReservation {
 
     /**
-    * DESCRIPTION OF changeReservatiom method here
+    * The changeReservation method uses the reservationID to find the reservation within the Reservations.txt file and replace the orginal information with the new information
+    *     provided by the user. A temporary file is created to store the orginal reservation information while the new information is writing it over in the Reservations.txt file
+    *     to ensure that no information is lost. 
     * @author Iliana Madrigal 
     * @param ID is the ReservationID that each reservation had. Each ID is unique which is why it is the search term used to traverse the Reservations.txt file. 
     * @param oldValue is the original piece of information within the reservation that the user is trying to change. 
     * @param newValue is the new information that the user is trying have replace the original value of their reservation. 
-    * @exception if the information is unable to read or written to the file, and exception catches the error and displays to the terminal what the issue was. 
+    * @exception if the information is unable to be read or written to the file, and exception catches the error and displays to the terminal what the issue was. 
     */ 
     public void changeReservation(String ID, String oldValue, String newValue){
     try{
