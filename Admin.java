@@ -1,5 +1,6 @@
 /**
-* Des 
+* The Admin class stores methods which calculate the amount of reservations, the occupancy rate, the amount of each room type avaialble, and how many reservations have been cancelled. 
+*     This class is used to compile Admin reports which they can view after logging in. The Admin class also verfies that the entered admin log in information is correct. 
 * @author Iliana Madirgal 
 * @version 1.1 
 */ 
@@ -10,20 +11,21 @@ public class Admin {
     private int cancelCounter = 0;
 
     /**
-    * Checks whether or not t 
+    * Checks whether or not the Admin login information is correct, returning a boolean value if the user is granted permission to log into the Admin account. 
     * @author Iliana Madirgal 
-    * @param accountID
-    * @param user
+    * @param accountID is the Admin's account code which allows them to log into the Admin account. 
+    * @param user is the name on the account.
     * @return true if the login information matches the admin account ID and the name "user". Returns false if the inputted information does not match the Admin account information. 
     */ 
     public boolean logIN(String accountID, String user){
-        return accountID.equals("317895") && user.equals("admin");
+        return accountID.equals("329615") && user.equals("admin");
     }
     
     /**
-    * Des 
+    * The reservationCounter method decrements the amount of each room type available when a reservation is made requesting that room type, and increments
+    *     the count of the reservation.
     * @author Iliana Madirgal 
-    * @param roomType
+    * @param roomType is the type of room that the user indicates they want while creating their reservation. They will enter "Deluxe" or "Standard".  
     */ 
     public void reservationCounter(String roomType){
         if(roomType.equals("Deluxe")){
@@ -35,9 +37,12 @@ public class Admin {
     }
     
     /**
-    * Des 
+    * If a roomType is changed, the changeRoomCounter increments the number of the original room types remaining and decrements the number of 
+    *     rooms available for the type that the reservation changed to. This method ensures that an accurate amount of each room type is always 
+    *     visible to the Admin. 
     * @author Iliana Madirgal 
-    * @param newRoomType
+    * @param newRoomType is a string of the type of room that the reservation wants to change to. This information is provided by the user when they 
+    *    are making changes to their reservation. 
     */ 
     public void changeRoomCounter(String newRoomType){
         if(newRoomType.equals("Deluxe")){
@@ -81,7 +86,7 @@ public class Admin {
     }
 
     /**
-    * A simple method which calculates the percentage of reservations are cancelled. Used to compile an Admin report. 
+    * A simple method which calculates the percentage of reservations that are cancelled. Used to compile an Admin report. 
     * @author Iliana Madirgal 
     */ 
     public void cancelRate(){
