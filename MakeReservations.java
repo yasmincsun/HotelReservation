@@ -8,7 +8,6 @@ import java.io.*;
 * @author Iliana Madrigal 
 * @version 1.3 
 */ 
-
 public class MakeReservations {
 
     /**
@@ -29,7 +28,8 @@ public class MakeReservations {
     }
   
     /**
-    * Creates the reservation and writes the information into Reservations.txt in the order in which is it passed into the method, preceded by the code which is created by calling ConfirmCode(num)
+    * Creates the reservation and writes the information into Reservations.txt in the order in which is it passed into the method,
+    *     preceded by the code which is created by calling ConfirmCode(num). 
     * @author Iliana Madrigal 
     * @param firstName is the user's first name that they input while creating a reservation
     * @param lastName is the user's last name that they input while creating a reservation 
