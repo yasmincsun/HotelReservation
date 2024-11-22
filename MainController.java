@@ -14,112 +14,20 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.collections.*;
 
-
 import java.io.IOException;
 
+/**
+* The MainController class is the sole class responsible for connecting the Frontend of the program, with all of the JavaFX files, to the Backend of the program. 
+*     Includes every Button, Text Field, Text Area, and Label that is contained within the Front End and all of their fxid's. The class is also responsible for changing 
+*     the scenes back and forth from one another depending on the requests of the user. 
+* @author Yasmin Zubair 
+* @version 1.4
+*/ 
 public class MainController {
 
     private Stage primaryStage;
     private Scene scene;
     private Parent root;
-
-
-    public void switchToMainMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("HotelMain-View.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    public void switchToLogin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void switchToMakeReservation(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MakeReservation.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-
-    public void switchToAbout(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("About Us.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void switchToBrowseRooms(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BrowseRooms.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    /**
-     * public void switchToLoggedIn(ActionEvent event) throws IOException {
-     * <p>
-     * Parent root = FXMLLoader.load(getClass().getResource("LoggedIn.fxml"));
-     * primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-     * scene = new Scene(root);
-     * primaryStage.setScene(scene);
-     * primaryStage.show();
-     * <p>
-     * <p>
-     * }
-     */
-
-    public void switchToReview(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ReviewReservation.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void switchToCreate(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CreateAccount.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void switchToCreated(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("AccountCreated.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void switchToChangeReservation(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ChangeReservation.fxml"));
-        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-
-    }
-
-
-    public void getRoomTypeChoice(ActionEvent event) throws IOException {
-        String roomType = roomTypeChoice.getValue();
-        System.out.println(roomType);
-    }
-
 
     @FXML
     private Label welcomeText;
@@ -232,12 +140,167 @@ public class MainController {
     private TextField lastNameOnLogin;
 
 
+
+    /**
+    * The switchToMainMenu method loads the HotelMain-View.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToMainMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("HotelMain-View.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+
+    /**
+    * The switchToLogin method loads the Login.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The switchToMakeReservation method loads the MakeReservation.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToMakeReservation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MakeReservation.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    
+    /**
+    * The switchToAbout method loads the About Us.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToAbout(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("About Us.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The switchToBrowseRooms method loads the BrowseRooms.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToBrowseRooms(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("BrowseRooms.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    
+    /**
+    * The switchToReview method loads the ReviewReservation.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToReview(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ReviewReservation.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The switchToCreate method loads the CreateAccount.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToCreate(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("CreateAccount.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The switchToCreated method loads the AccountCreated.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToCreated(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("AccountCreated.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The switchToChangeReservation method loads the ChangeReservation.fxml file to the system and displays the scene to the user through the stage. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void switchToChangeReservation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ChangeReservation.fxml"));
+        primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+    * The getRoomTypeChoice method collects retrieves the value of the choice box as a string, and prints it to the user through the terminal. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to take the input from the Choice Box. 
+    * @thorws IOException if there is any issues with receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
+    public void getRoomTypeChoice(ActionEvent event) throws IOException {
+        String roomType = roomTypeChoice.getValue();
+        System.out.println(roomType);
+    }
+    
+
+    /**
+    * The printHelloWorld method is a general test case that is included in the program temporarily to ensure that all the scenes are able to load correctly and that the buttons are 
+    *     functional.  
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to print the information 
+    */ 
     @FXML
     public void printHelloWorld(MouseEvent event) { // Test method
         System.out.println("Hello World!");
     }
 
-
+    /**
+    * The reservationCreationInforamation method collects all of the reservation information from the user. When the information is typed into the text fields, and a button is clicked, 
+    *     this method gets all of the information and calls the makeRes method from the MakeReservations class to have the information written to the Reservations.txt file. The method
+    *     will then load the ReservationMade.fxml file to the stage to display to the user. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
     @FXML
     public void reservationCreationInformation(MouseEvent event) throws IOException {
         String firstName = firstNameIn.getText();
@@ -257,7 +320,15 @@ public class MainController {
         primaryStage.show();
 
     }
-
+    
+    /**
+    * The accountCreationInformation method collects all of the account information from the user. When the information is typed into the text fields, and a button is clicked, 
+    *     this method gets all of the information and calls the createAccount method from the Accounts class to have the information written to the Accounts.txt file. The button that
+    *     allows the user to create their account is set to no longer be visible to ensure that the user doesn't accidentally create multiple accounts with the same information. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
     @FXML
     public void accountCreationInformation(MouseEvent event) {
         String firstName = firstNameInCA.getText();
@@ -272,16 +343,28 @@ public class MainController {
 
     }
 
+    /**
+    * The checkresExist method collects the reservationID from the information inputted by the user into the text field. If the reservation exists, the reservation information is 
+    *     displayed, and if not the user does not see any change in their program. The method creates an object of the ReservationSearch class which calls the searchReservation method. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
     public void checkResExist(ActionEvent event) throws IOException {
         String reservationID = searchReservationID.getText();
         ReservationSearch obj = new ReservationSearch(reservationID);
         obj.searchReservation();
         reservationInformation.setText(obj.getReservationDetails(reservationID));
-
-
     }
 
-
+    /**
+    * The accountFound method collects the accountID and lastName from the information inputted by the user into the text field. Creating an object of the Accounts class, the 
+    *     verifyAccount metjod is called ensuring that all of the information inputted by the user exists. If it does, then the LoggedIn.fxml file is loaded and the new scene is 
+    *     displayed. Else, the user will be prompted to reenter their infomration or create an account. 
+    * @author Yasmin Zubair
+    * @param event is the clicking of the button on the Front End of the program to view the new scene. 
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
     public void accountFound(ActionEvent event) throws IOException {
         String accountIDSearch = accountIDonLogin.getText();
         String lastNameSearch = lastNameOnLogin.getText();
@@ -297,9 +380,14 @@ public class MainController {
         } else {
             noAccountFound.setText("No account found. Try again or create an account.");
         }
-
     }
 
+    /**
+    * The displayOriginalInformation method is a simple setter method which displays the orginal reservation information to the user. This method is called when the the user
+    *     is trying to change their reservation information, so they have the ability to view their orginal reservation before making any changes. 
+    * @author Yasmin Zubair
+    * @thorws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function. 
+    */ 
     public void displayOriginalInformation() throws IOException {
         displayFirstName.setText(firstNameIn.getText());
         displayLastName.setText(lastNameIn.getText());
@@ -309,6 +397,11 @@ public class MainController {
 
     }
 
+    /**
+    * The onHelloButtonClick method is a general test case that is included in the program temporarily to ensure that all the scenes are able to load correctly and that the buttons are 
+    *     functional. If the button is working as intended, and the front end and back end are properly connected, the user should see a message stating "You clicked a button!" 
+    * @author Yasmin Zubair
+    */ 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("You clicked a button!");
