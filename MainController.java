@@ -311,7 +311,6 @@ public class MainController {
         displayReservationID.setText("Reservation ID will be displayed here (for now) ");
         MakeReservations obj = new MakeReservations();
         obj.makeRes(firstName, lastName, checkInDate, checkOutDate, roomType);
-        System.out.println(firstName);
 
         Parent root = FXMLLoader.load(getClass().getResource("ReservationMade.fxml"));
         primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -394,8 +393,12 @@ public class MainController {
         displayCheckIn.setText(checkInDatePicker.getValue().toString());
         displayCheckout.setText(checkOutDatePicker.getValue().toString());
         displayRoomType.setText(roomTypeBox.getText());
-
     }
+
+    public void changeReservationDetails(ActionEvent event) throws IOException { 
+        ManageReservation obj = new ManageReservation(); 
+
+    } 
 
     /**
     * The onHelloButtonClick method is a general test case that is included in the program temporarily to ensure that all the scenes are able to load correctly and that the buttons are 
