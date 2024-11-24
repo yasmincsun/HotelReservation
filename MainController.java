@@ -311,6 +311,8 @@ public class MainController {
         displayReservationID.setText("Reservation ID will be displayed here (for now) ");
         MakeReservations obj = new MakeReservations();
         obj.makeRes(firstName, lastName, checkInDate, checkOutDate, roomType);
+        // get reservation ID here 
+        // String resID = obj.
 
         Parent root = FXMLLoader.load(getClass().getResource("ReservationMade.fxml"));
         primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -318,6 +320,10 @@ public class MainController {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        ReservationSearch obj2 = new ReservationSearch(resID); 
+        obj.searchReservation(); 
+        displayResID.setText(resID); 
+        reservationConfirmation.setText(obj.getReservationDetails(resID)); 
     }
     
     /**
