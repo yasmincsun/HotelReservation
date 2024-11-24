@@ -400,6 +400,30 @@ public class MainController {
 
     } 
 
+    /** 
+    * This class verifies the admin log in information, and if it correct will load the logged in scene. If not, it will 
+    * display an error message to the user asking them to try again. 
+    * @author Yasmin Zubair 
+    * @param event is the clicking of the button on the Front End of the program to view the new scene.
+    * @throws IOException if there is any issues with loading the scene or receiving the input from the user, the exception is thrown to ensure that the program can continue to function.
+    */ 
+    public void adminLoggingIn(ActionEvent event) throws IOException{ 
+        String adminAccountID = adminAccountCode.getText(); 
+        String user = adminName.getText(); 
+        Admin obj = new Admin();
+        boolean adminAccess; 
+        adminAccess = obj.logIN(adminAccountID, user); 
+        if(adminAccess){ 
+            Parent root = FXMLLoader.load(getClass().getResource("AdminLoggedIn.fxml"));
+            primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } else {
+            adminAccessDenied.setText("Log in failed. Try again or go to the standard Log in page.");
+        }
+    } 
+
     /**
     * The onHelloButtonClick method is a general test case that is included in the program temporarily to ensure that all the scenes are able to load correctly and that the buttons are 
     *     functional. If the button is working as intended, and the front end and back end are properly connected, the user should see a message stating "You clicked a button!" 
