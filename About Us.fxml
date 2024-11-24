@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="566.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelreservations.MainController">
+<AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.hotelreservations.MainController">
    <children>
-      <Text layoutX="254.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is a hotel ">
+      <Button layoutX="21.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToMainMenu" text="Return to Main Menu">
          <font>
-            <Font name="Times New Roman" size="25.0" />
+            <Font name="Times New Roman" size="14.0" />
+         </font></Button>
+      <Text fill="WHITE" layoutX="114.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Tree Hotel was established in 2024. Located in the heart of Southern California, the hotel offers stunning views of the Los Angeles skyline. Rounding out at a humble 100 rooms, the Tree Hotel is the perfect weekend getaway for anyone looking to rejuvinate and recharge." textAlignment="CENTER" wrappingWidth="514.1367797851562">
+         <font>
+            <Font name="Times New Roman" size="30.0" />
          </font>
       </Text>
-      <Text layoutX="163.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We have been open for 5 minutes">
+      <Polygon fx:id="logo" fill="#046129" layoutX="375.0" layoutY="74.0" points="-50.0, 40.0, 50.0, 40.0, 0.0, -60.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#543109" height="26.0" layoutX="371.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="9.0" />
+      <Button fx:id="MakeReservation" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToMakeReservation" text="Make Reservation">
          <font>
-            <Font name="Times New Roman" size="25.0" />
+            <Font name="Times New Roman" size="14.0" />
          </font>
-      </Text>
-      <Text layoutX="65.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We apologize for any errors within the website">
-         <font>
-            <Font name="Times New Roman" size="25.0" />
-         </font>
-      </Text>
-      <Button layoutX="38.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchToMainMenu" text="Return to Main Menu" />
+      </Button>
    </children>
 </AnchorPane>
