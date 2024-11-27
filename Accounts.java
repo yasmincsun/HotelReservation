@@ -29,6 +29,14 @@ public class Accounts {
         return code.toString();
     }
     
+    public boolean validation(String value){
+        if(value == null || value.equals(" ") || value.equals("")){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     /**
     * The verifyAccount method is used to ensure that the user who is logging into the program is the one who is meant to. It calls the AccountSearch method to verify that the 
     *     accountID and the last name associated with the account are the same. Returns true if the account information is verified and false if it is not. 
