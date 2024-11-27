@@ -5,11 +5,7 @@
 * @version 1.1 
 */ 
 public class Admin {
-    private int availableDeluxe = 50;
-    private int availableStandard = 50;
-    private int reservCounter = 0;
-    private int cancelCounter = 0;
-
+    
     /**
     * Checks whether or not the Admin login information is correct, returning a boolean value if the user is granted permission to log into the Admin account. 
     * @author Iliana Madirgal 
@@ -28,12 +24,57 @@ public class Admin {
     * @param roomType is the type of room that the user indicates they want while creating their reservation. They will enter "Deluxe" or "Standard".  
     */ 
     public void reservationCounter(String roomType){
-        if(roomType.equals("Deluxe")){
-            availableDeluxe--;
-        }else{
-            availableStandard--;
-        }
-        reservCounter++;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            BufferedWriter writer = new BufferedWriter((new FileWriter("temp.txt")));
+            String line;
+            if (roomType.equals("Standard")) {
+                line = reader.readLine();
+                System.out.print(line);
+                int availableStandard = Integer.parseInt(line);
+                availableStandard--;
+                line = line.replace(line, String.valueOf(availableStandard));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                int reservattionCounter = Integer.parseInt((reader.readLine()));
+                reservattionCounter++;
+                line = line.replace(line, String.valueOf(reservattionCounter));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+               writer.write(line);
+                writer.newLine();
+            } else {
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                int availableDeluxe = Integer.parseInt(reader.readLine());
+                availableDeluxe--;
+                line = line.replace(line, String.valueOf(availableDeluxe));
+                writer.write(line);
+                writer.newLine();
+                int reservattionCounter = Integer.parseInt((reader.readLine()));
+                reservattionCounter++;
+                line = line.replace(line, String.valueOf(reservattionCounter));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+            }
+            writer.close();
+            reader.close();
+        }catch(Exception e){System.out.printf("\n\tError occurred in trying to write to the file. %s", e);}
+        try{
+            File oldName = new File("Data.txt");
+            boolean test = oldName.delete();
+            File temp = new File("temp.txt");
+            File newName = new File("Data.txt");
+            boolean check = temp.renameTo(newName);
+        }catch (Exception e){System.out.printf("\n\tError occurred in trying to rename and delete files. %s", e);}
     }
     
     /**
@@ -45,13 +86,60 @@ public class Admin {
     *    are making changes to their reservation. 
     */ 
     public void changeRoomCounter(String newRoomType){
-        if(newRoomType.equals("Deluxe")){
-            availableStandard++;
-            availableDeluxe--;
-        }else{
-            availableDeluxe++;
-            availableStandard--;
-        }
+       try {
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            BufferedWriter writer = new BufferedWriter((new FileWriter("temp.txt")));
+            String line;
+            if (newRoomType.equals("Standard")) {
+                line = reader.readLine();
+                int availableStandard = Integer.parseInt(line);
+                availableStandard--;
+                line = line.replace(line, String.valueOf(availableStandard));
+                writer.write(line);
+                writer.newLine();
+                int availableDeluxe = Integer.parseInt(reader.readLine());
+                availableDeluxe++;
+                line = line.replace(line, String.valueOf(availableDeluxe));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                System.out.print(availableDeluxe);
+                System.out.print(availableStandard);
+            } else {
+                line = reader.readLine();
+                int availableStandard = Integer.parseInt(line);
+                availableStandard++;
+                line = line.replace(line, String.valueOf(availableStandard));
+                writer.write(line);
+                writer.newLine();
+                int availableDeluxe = Integer.parseInt(reader.readLine());
+                availableDeluxe--;
+                line = line.replace(line, String.valueOf(availableDeluxe));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                System.out.print(availableDeluxe);
+                System.out.print(availableStandard);
+            }
+            writer.close();
+            reader.close();
+
+        }catch (Exception e){System.out.printf("\n\tError occurred in trying to read adn write to file. %s", e);}
+        try{
+            File oldName = new File("Data.txt");
+            boolean test = oldName.delete();
+            File temp = new File("temp.txt");
+            File newName = new File("Data.txt");
+            boolean check = temp.renameTo(newName);
+        }catch (Exception e){System.out.printf("\n\tError occurred in trying to rename and delete files. %s", e);}
     }
     
     /**
@@ -60,12 +148,55 @@ public class Admin {
     * @param roomType is the name of the room that the user inputted while creating a reservation. This information is stored alongside the other reservation information in the Reservations.txt file. 
     */ 
     public void cancelCounter(String roomType){
-        if(roomType.equals("Deluxe")){
-            availableDeluxe++;
-        }else{
-            availableStandard++;
-        }
-        cancelCounter++;
+       try {
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            BufferedWriter writer = new BufferedWriter((new FileWriter("temp.txt")));
+            String line;
+            if (roomType.equals("Standard")) {
+                line = reader.readLine();
+                int availableStandard = Integer.parseInt(line);
+                availableStandard++;
+                line = line.replace(line, String.valueOf(availableStandard));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                int cancelCounter = Integer.parseInt(reader.readLine());
+                cancelCounter++;
+                line = line.replace(line, String.valueOf(cancelCounter));
+                writer.write(line);
+            } else {
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                int availableDeluxe = Integer.parseInt(reader.readLine());
+                availableDeluxe++;
+                line = line.replace(line, String.valueOf(availableDeluxe));
+                writer.write(line);
+                writer.newLine();
+                line = reader.readLine();
+                writer.write(line);
+                writer.newLine();
+                int cancelCounter = Integer.parseInt(reader.readLine());
+                cancelCounter++;
+                line = line.replace(line, String.valueOf(cancelCounter));
+                writer.write(line);
+            }
+            writer.close();
+            reader.close();
+
+        }catch (Exception e){System.out.printf("\n\tError occurred in trying to read and write to file. %s", e);}
+        try{
+            File oldName = new File("Data.txt");
+            boolean test = oldName.delete();
+            File temp = new File("temp.txt");
+            File newName = new File("Data.txt");
+            boolean check = temp.renameTo(newName);
+        }catch (Exception e){System.out.printf("\n\tError occurred in trying to rename and delete files. %s", e);}
     }
 
     /**
@@ -74,15 +205,22 @@ public class Admin {
     * @author Iliana Madirgal 
     */ 
     public void occupancyRate(){
-        int occupDeluxeRoom;
-        int occupStandardRoom;
-        occupDeluxeRoom = 50 - availableDeluxe;
-        occupStandardRoom = 50 - availableStandard;
-        int deluxeRate = (occupDeluxeRoom /50) *100;
-        int standardRate = (occupStandardRoom/50) * 100;
-
-        int forecastDeluxe =(occupDeluxeRoom /availableDeluxe) *100;
-        int forecastStandard = (occupStandardRoom/availableStandard) * 100;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            String line;
+            int availableStandard = Integer.parseInt(reader.readLine());
+            int availableDeluxe = Integer.parseInt(reader.readLine());
+            double occupDeluxeRoom;
+            double occupStandardRoom;
+            occupDeluxeRoom = 50 - availableDeluxe;
+            occupStandardRoom = 50 - availableStandard;
+            double deluxeRate = (occupDeluxeRoom / 50) * 100;
+            double standardRate = (occupStandardRoom / 50) * 100;
+            double forecastDeluxe = (occupDeluxeRoom / availableDeluxe) * 100;
+            double forecastStandard = (occupStandardRoom / availableStandard) * 100;
+            long roundfcStandard = Math.round(forecastStandard);
+            long roundfcDeluxe = Math.round(forecastDeluxe);
+        }catch(Exception e){System.out.printf("\n\tError occurred in trying to read from the file. %s", e);}
     }
 
     /**
@@ -90,7 +228,18 @@ public class Admin {
     * @author Iliana Madirgal 
     */ 
     public void cancelRate(){
-        int rate = (cancelCounter/reservCounter) * 100;
+       try{
+            BufferedReader reader = new BufferedReader(new FileReader("Data.txt"));
+            String line;
+            line = reader.readLine();
+            line = reader.readLine();
+            int reservCounter = Integer.parseInt((reader.readLine()));
+            int cancelCounter = Integer.parseInt((reader.readLine()));
+            Double reserv = Double.valueOf(reservCounter);
+            double rate = (cancelCounter/reserv) * 100;
+            long roundRate = Math.round(rate);
+            reader.close();
+        }catch(Exception e){System.out.printf("\n\tError occurred in trying to read from the file. %s", e);}
     }
 
 }
