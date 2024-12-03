@@ -4,7 +4,12 @@
 * @author Iliana Madirgal 
 * @version 1.1 
 */ 
-public class Admin {
+public class Admin 
+    private String cancellationRate;
+    private String standardOccuRate;
+    private String deluxeOccuRate;
+    private String forecastStanOccuRate;
+    private String forecastDelOccuRate;
     
     /**
     * Checks whether or not the Admin login information is correct, returning a boolean value if the user is granted permission to log into the Admin account. 
@@ -220,6 +225,10 @@ public class Admin {
             double forecastStandard = (occupStandardRoom / availableStandard) * 100;
             long roundfcStandard = Math.round(forecastStandard);
             long roundfcDeluxe = Math.round(forecastDeluxe);
+            standardOccuRate = roundfcStandard +"";
+            deluxeOccuRate = roundfcDeluxe +"";
+            forecastStanOccuRate = forecastDeluxe +"";
+            forecastDelOccuRate = forecastDeluxe + "";
         }catch(Exception e){System.out.printf("\n\tError occurred in trying to read from the file. %s", e);}
     }
 
@@ -238,8 +247,13 @@ public class Admin {
             Double reserv = Double.valueOf(reservCounter);
             double rate = (cancelCounter/reserv) * 100;
             long roundRate = Math.round(rate);
+            cancellationRate = roundRate + "";
             reader.close();
         }catch(Exception e){System.out.printf("\n\tError occurred in trying to read from the file. %s", e);}
+    }
+    public String getRateDetails(){
+        return String.format("Cancellation Rate: %s\n\nStandard Occupancy Rate: %s\n\nDeluxe Occupancy Rate: %s\n\nForecast Standard Rate: %s\n\n Forecast Deluxe Rate: %s\n\n" +
+                                cancellationRate, standardOccuRate, deluxeOccuRate, forecastStanOccuRate, forecastDelOccuRate);
     }
 
 }
